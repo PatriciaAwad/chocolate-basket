@@ -1,0 +1,18 @@
+# src/User/BlogBundle/Resources/config/routing.yml
+UserBlogBundle_homepage:
+    pattern:  /
+    defaults: { _controller: UserBlogBundle:Page:index }
+    requirements:
+        _method:  GET
+
+UserBlogBundle_about:
+    pattern:  /about
+    defaults: { _controller: UserBlogBundle:Page:about }
+    requirements:
+        _method:  GET
+
+UserBlogBundle_contact:
+    pattern:  /contact
+    defaults: { _controller: UserBlogBundle:Page:contact }
+    requirements:
+        _method:  GET
