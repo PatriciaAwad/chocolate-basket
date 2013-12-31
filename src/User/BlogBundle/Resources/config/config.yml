@@ -1,0 +1,4 @@
+# src/User/BlogBundle/Resources/config/config.yml
+parameters:
+    # User contact email address
+    user_blog.emails.contact_email: assistant@email.com

@@ -5,10 +5,17 @@
 
 {% block body %}
     <header>
-        <h1>Contact symblog</h1>
+        <h1>Contact Chocolate Basket</h1>
     </header>
 
-    <p>Want to contact symblog?</p>
+    {% for flashMessage in app.session.flashbag.get('user-notice') %}
+    <div class="user-notice">
+        {{ flashMessage }}
+    </div>
+    {% endfor %}
+
+
+    <p>Want to contact Chocolate Basket?</p>
 
     <form action="{{ path('UserBlogBundle_contact') }}" method="post" {{ form_enctype(form) }} class="user">
         {{ form_errors(form) }}

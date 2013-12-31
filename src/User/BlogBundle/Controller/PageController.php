@@ -34,10 +34,18 @@ class PageController extends Controller
 
         $request = $this->getRequest();
         if ($request->getMethod() == 'POST') {
-            $form->bindRequest($request);
+            $form->bind($request);
 
             if ($form->isValid()) {
-                // Perform some action, such as sending an email
+
+                $message = \Swift_Message::newInstance()
+                    ->setSubject('Contact enquiry from Chocolate Basket')
+                    ->setFrom('enquiries@chocolate-basket.co.uk')
+                    ->setTo($this->container->getParameter('user_blog.emails.contact_email'))
+                    ->setBody($this->renderView('UserBlogBundle:Page:contactEmail.txt.twig', array('enquiry' => $enquiry)));
+                $this->get('mailer')->send($message);
+
+                $this->get('session')->getFlashBag()->set('user-notice', 'Your contact enquiry was successfully sent. Thank you!');
 
                 // Redirect - This is important to prevent users re-posting
                 // the form if they refresh the page

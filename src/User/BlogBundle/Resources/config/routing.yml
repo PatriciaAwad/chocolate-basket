@@ -15,4 +15,4 @@ UserBlogBundle_contact:
     pattern:  /contact
     defaults: { _controller: UserBlogBundle:Page:contact }
     requirements:
-        _method:  GET
+        _method:  GET|POST
