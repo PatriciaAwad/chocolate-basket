@@ -1,0 +1,22 @@
+{# src/User/BlogBundle/Resouces/views/Article/show.html.twig #}
+{% extends 'UserBlogBundle::layout.html.twig' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block body %}
+    <article class="article">
+        <header>
+            <h2>{{ article.title }}</h2>
+        </header>
+        <img src="{{ asset(['images/', article.image]|join) }}" alt="{{ article.title }} image not found" class="large" />
+        <div>
+            <p>Description :{{ article.article }}</p>
+        </div>
+        <div>
+            <p>Prix :{{ article.price }}</p>
+        </div>
+        <div>
+            <p>Ajouter au panier:{{ article.add }}</p>
+        </div>
+    </article>
+{% endblock %}

@@ -2,5 +2,20 @@
 {% extends 'UserBlogBundle::layout.html.twig' %}
 
 {% block body %}
-    Blog homepage
+    {% for article in articles %}
+        <article class="article">
+            <header>
+                <h2><a href="{{ path('UserBlogBundle_article_show', { 'id': article.id }) }}">{{ article.title }}</a></h2>
+            </header>
+
+            <img src="{{ asset(['images/', article.image]|join) }}" />
+            <div class="snippet">
+                <p>{{ article.article(500) }}</p>
+                <p class="continue"><a href="{{ path('UserBlogBundle_article_show', { 'id': article.id }) }}">Continue reading...</a></p>
+            </div>
+
+        </article>
+    {% else %}
+        <p>There are no blog entries for Chocolate Basket</p>
+    {% endfor %}
 {% endblock %}

@@ -1,0 +1,14 @@
+{# src/User/BlogBundle/Resources/views/Page/sidebar.html.twig #}
+
+<section class="section">
+    <header>
+        {% block navigation %}
+            <nav>
+                <ul class="navigation">
+                    <li><a href="#">Register</a></li>
+                    <li><a href="{{ path('UserBlogBundle_login') }}">Login</a></li>
+                </ul>
+            </nav>
+        {% endblock %}
+    </header>
+</section>
