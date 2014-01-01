@@ -1,0 +1,6 @@
+services:
+    user.blog.admin.article:
+      class: User\BlogBundle\Admin\ArticleAdmin
+      tags:
+        - { name: sonata.admin, manager_type: orm, group: Blog, label: Articles}
+      arguments: [null, User\BlogBundle\Entity\Article,SonataAdminBundle:CRUD]

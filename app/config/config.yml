@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: @UserBlogBundle/Resources/config/config.yml }
+    - { resource: @UserBlogBundle/Resources/config/admin.yml }
 
 framework:
     #esi:             ~
@@ -77,10 +78,53 @@ fos_user:
     firewall_name: main
     user_class: User\BlogBundle\Entity\User
 # app/config/config.yml
+sonata_doctrine_orm_admin:
+  # default value is null, so doctrine uses the value defined in the configuration
+  entity_manager: ~
+
+  templates:
+      form:
+          - SonataDoctrineORMAdminBundle:Form:form_admin_fields.html.twig
+      filter:
+          - SonataDoctrineORMAdminBundle:Form:filter_admin_fields.html.twig
+      types:
+          list:
+              array:      SonataAdminBundle:CRUD:list_array.html.twig
+              boolean:    SonataAdminBundle:CRUD:list_boolean.html.twig
+              date:       SonataAdminBundle:CRUD:list_date.html.twig
+              time:       SonataAdminBundle:CRUD:list_time.html.twig
+              datetime:   SonataAdminBundle:CRUD:list_datetime.html.twig
+              text:       SonataAdminBundle:CRUD:base_list_field.html.twig
+              trans:      SonataAdminBundle:CRUD:list_trans.html.twig
+              string:     SonataAdminBundle:CRUD:base_list_field.html.twig
+              smallint:   SonataAdminBundle:CRUD:base_list_field.html.twig
+              bigint:     SonataAdminBundle:CRUD:base_list_field.html.twig
+              integer:    SonataAdminBundle:CRUD:base_list_field.html.twig
+              decimal:    SonataAdminBundle:CRUD:base_list_field.html.twig
+              identifier: SonataAdminBundle:CRUD:base_list_field.html.twig
+
+          show:
+              array:      SonataAdminBundle:CRUD:show_array.html.twig
+              boolean:    SonataAdminBundle:CRUD:show_boolean.html.twig
+              date:       SonataAdminBundle:CRUD:show_date.html.twig
+              time:       SonataAdminBundle:CRUD:show_time.html.twig
+              datetime:   SonataAdminBundle:CRUD:show_datetime.html.twig
+              text:       SonataAdminBundle:CRUD:base_show_field.html.twig
+              trans:      SonataAdminBundle:CRUD:show_trans.html.twig
+              string:     SonataAdminBundle:CRUD:base_show_field.html.twig
+              smallint:   SonataAdminBundle:CRUD:base_show_field.html.twig
+              bigint:     SonataAdminBundle:CRUD:base_show_field.html.twig
+              integer:    SonataAdminBundle:CRUD:base_show_field.html.twig
+              decimal:    SonataAdminBundle:CRUD:base_show_field.html.twig
+
 sonata_block:
-    default_contexts: [cms]
-    blocks:
-        # Enable the SonataAdminBundle block
-        sonata.admin.block.admin_list:
-            contexts:   [admin]
-        # Your other blocks
+   default_contexts: [cms]
+   blocks:
+       sonata.admin.block.admin_list:
+           contexts:   [admin]
+       sonata.block.service.text:
+       sonata.block.service.action:
+       sonata.block.service.rss:
+sonata_admin:
+    title:      Chocolate Basket
+    title_logo: bundles/Userblog/images/chocolate-basket-logo.png
