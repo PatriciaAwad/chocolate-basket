@@ -1,4 +1,5 @@
 {# src/User/BlogBundle/Resouces/views/Article/show.html.twig #}
+
 {% extends 'UserBlogBundle::layout.html.twig' %}
 
 {% block title %}{{ article.title }}{% endblock %}
@@ -16,7 +17,10 @@
             <p>Prix :{{ article.price }}</p>
         </div>
         <div>
-            <p>Ajouter au panier:{{ article.add }}</p>
+            <form><p>Quantité:{{ article.quantity }}</p></form>
+        </div>
+        <div>
+           <p>Ajouter au panier:{{ article.add }}</p>
         </div>
     </article>
 {% endblock %}

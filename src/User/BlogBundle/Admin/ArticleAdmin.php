@@ -28,6 +28,9 @@ class ArticleAdmin extends Admin
                 ->add('article')
                 ->add('price')
                 ->add('image')
+                ->add('quantity', 'choice', array(
+                'choices' => array('100gr' =>'100gr', '200gr' => '200gr', '300gr' => '300gr')
+                ))
             ->end()
         ;
     }
@@ -42,7 +45,6 @@ class ArticleAdmin extends Admin
             ->add('image')
             ->add('_action', 'actions', array(
                     'actions' => array(
-                    'create'=>array(),
                     'view' => array(),
                     'edit' => array(),
                     'delete' => array(),
@@ -59,6 +61,12 @@ class ArticleAdmin extends Admin
             ->add('article')
             ->add('price')
             ->add('image')
+            ->add('quantity', 'choice', array(
+                'choices' => array('100gr' =>'100gr', '200gr' => '200gr', '300gr' => '300gr')
+            ))
+            ->add('add', 'checkbox', array(
+                'label'     => 'Ajouter au panier',
+            ))
         ;
     }
     // champs visibles dans show
@@ -69,6 +77,12 @@ class ArticleAdmin extends Admin
             ->add('article')
             ->add('price')
             ->add('image')
+            ->add('quantity', 'choice', array(
+                'choices' => array('100gr' =>'100gr', '200gr' => '200gr', '300gr' => '300gr')
+            ))
+            ->add('add', 'checkbox', array(
+                'label'     => 'Ajouter au panier',
+            ))
         ;
     }
 }

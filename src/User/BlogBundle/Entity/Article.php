@@ -41,8 +41,8 @@ class Article {
     protected $article;
 
     /**
-     * @var string
-     * @ORM\Column(type="string", length=255)
+     *
+     * @ORM\Column(type="decimal", scale=2)
      */
     protected $price;
 
@@ -53,11 +53,16 @@ class Article {
     protected $image;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="add", type="boolean")
+     * @var string
+     * @ORM\Column(type="string", length=255)
      */
-    private $add;
+    protected $quantity;
+
+    /**
+     * @var boolean
+     * @ORM\Column(type="boolean")
+     */
+    protected $add;
 
 
     /**
@@ -108,21 +113,7 @@ class Article {
         return $this->id;
     }
 
-    /**
-     * @param string $price
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
-    }
 
-    /**
-     * @return string
-     */
-    public function getPrice()
-    {
-        return $this->price;
-    }
 
     /**
      * @param string $title
@@ -142,12 +133,10 @@ class Article {
 
     /**
      * @param boolean $add
-     *
      */
     public function setAdd($add)
     {
         $this->add = $add;
-        return $this;
     }
 
     /**
@@ -157,5 +146,40 @@ class Article {
     {
         return $this->add;
     }
+
+    /**
+     * @param string $quantity
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+    }
+
+    /**
+     * @return string
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @param mixed $price
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+
+
 
 } 

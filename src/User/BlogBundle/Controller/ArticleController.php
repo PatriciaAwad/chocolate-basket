@@ -9,6 +9,7 @@
 namespace User\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\ChoiceList\ChoiceListInterface;
 
 /**
  * Article Controller
@@ -23,6 +24,7 @@ class ArticleController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $article = $em->getRepository('UserBlogBundle:Article')->find($id);
+
 
         if (!$article) {
             throw $this->createNotFoundException('Unable to find Article post.');

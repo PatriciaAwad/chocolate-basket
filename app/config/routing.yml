@@ -29,3 +29,6 @@ _sonata_admin:
     type: sonata_admin
     prefix: /admin
 
+_imagine:
+    resource: .
+    type:     imagine
